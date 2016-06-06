@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset=ISO-8859-1/>
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <title>Boston Transport Group</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="home.css" /> 
+  <script type="text/javascript" src="top.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div id="background"></div>
+    <div id ="container"></div>
+
+<script>
+function showDate()
+{
+	var now = new Date();
+	var days = new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+	var months = new Array('January','February','March','April','May','June','July','August','September','October','November','December');
+	var date = ((now.getDate()<10) ? "0" : "")+ now.getDate();
+	function fourdigits(number)
+	{
+		return (number < 1000) ? number + 1900 : number;
+	}	
+	tnow=new Date();
+	thour=now.getHours();
+	tmin=now.getMinutes();
+	tsec=now.getSeconds();
+	
+	if (tmin<=9) { tmin="0"+tmin; }
+	if (tsec<=9) { tsec="0"+tsec; }
+	if (thour<10) { thour="0"+thour; }
+	
+	today = days[now.getDay()] + ", " + date + " " + months[now.getMonth()] + ", " + (fourdigits(now.getYear())) + " - " + thour + ":" + tmin +":"+ tsec;
+	document.getElementById("dateDiv").innerHTML = today;
+	document.getElementById("dateDiv").style.fontSize= "20px";
+	document.getElementById("dateDiv").style.fontStyle = "italic";
+}
+setInterval("showDate()", 1000);
+</script>
+
+<!-- Begin Translation Button -->
+<!--  <script type="text/javascript">	var translate_src = 'en';</script>
+<div class="translate">
+<a title="Translator" href="http://www.certifiedchinesetranslation.com/button.html"><font color="#000000">Google Translator</font></a>
+<a class="translate_no_drop" title="Spanish" href="http://www.certifiedchinesetranslation.com/Spanish/" ><span class="translate_image_spanish">Spanish Translation</span></a>
+<a class="translate_no_drop" title="Chinese" href="http://www.certifiedchinesetranslation.com/" ><span class="translate_image_chinese">Chinese Translation</span></a>
+<a class="translate_no_drop" title="Japanese" href="http://www.certifiedchinesetranslation.com/Japanese/" ><span class="translate_image_japanese">Japanese Translation</span></a>
+<a class="translate_no_drop" title="French" href="http://www.certifiedchinesetranslation.com/French/" ><span class="translate_image_french">French Translation</span></a>
+<a class="translate_no_drop" title="German" href="http://www.certifiedchinesetranslation.com/German/" ><span class="translate_image_german">German Translation</span></a>
+<a class="translate_no_drop" title="Arabic" href="http://www.certifiedchinesetranslation.com/Arabic/" ><span class="translate_image_arabic">Arabic Translation</span></a>
+</div>
+<script type="text/javascript" src="http://www.certifiedchinesetranslation.com/translate.js"></script><br>
+<div class='widget-content'>
+</div>
+<div id="google_translate_element">
+</div>
+<script> 
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en'
+  }, 'google_translate_element');
+}
+</script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- End Translation Button -->
+
+    <div id="header">
+    <h1 id = "e-metro">
+    <a href="home.html">
+    <img src="Bostonlogo.png" alt="Boston logo" width="190" height="99">
+    </a>
+    </h1>
+    </div>
+    <div id="nav">
+      <ul id="nav-li">
+        <li class="nav-li1"><a href="schedules and maps.html"><span>Schedules and<br>Maps</span></a></li>
+        <li class="nav-li2"><a href="Fares.html"><span>Fares/Tickets</span></a></li>
+        <li class="nav-li3"><a href="TipsforT.html"><span>Tips for <br>riding T</span></a></li>        
+        <li class="nav-li4"><a href="AboutBTG.html"><span>About<br>the BTG</span></a></li>
+        <li class="nav-li5"><a href="CustomerSupport.html"><span>Customer<br>Support</span></a></li>
+        <li class="nav-li6"><a href="safety.html"><span>Safety and<br> security</span></a></li>  
+      </ul>
+    </div><!-- nav -->
+
+    <div id="f-content">
+      <div id="f-contentHeader">
+        <h2 class="h-raleway h-ls"><span class="e-word1 h-raleway h-ls">Boston</span><span class="e-word2 h-raleway h-ls"> Transport Group</span></h2>
+        <p>Covering all the areas of Boston.<br>Providing visit to the beautiful city Boston by Boston Transport Group.</p>  
+         <div id="dateDiv"></div>   
+        </div><!-- contentHeader -->
+      
+    <div id="body">  
+        <div class="b-column1">
+          <div class="e-item e-item01">
+            <h2>Rider Tools</h2> 
+              <div class="e-itemBox">
+              <h3>Trip Planner</h3>
+              <div align="center">
+              <table class="table" border="0" width="250px">
+              <tr>
+              <td width="30" height="50" valign="top" valign="top" bgcolor="#66CCCC">
+              <p align="left"><b>Plan a trip:</b><br><br>
+              <form style="display:inline;">Start: <input type ="text" name="start destination" size = "20"><br><br>
+              End: <input type ="text" name="end destination" size = "20"><br><br></form>
+              <p align="left"><b>Check timings:</b><br>
+              <form style="display:inline;">Depart:<input type ="radio" name="depart" style="border-color:black"><br>
+              Arrive: <input type ="radio" name="arrive"> <br>
+              Date: <input type="text" name="depart/arrive" size="5"><br><br>
+              Time: <input type="text" name="date" size="5"><br><br>
+              <button class="btn btn-success btn-xs">Planner</button>
+              <button class="btn btn-primary btn-xs">Google Transmit</button>
+              </form></p></td>
+              </tr>
+              </table> 
+              </div>             
+           </div><!-- e-itemBox -->
+         
+      <div class="e-itemBox h-ofv">
+              <h3>Nearby Service</h3>
+              <div align="center">
+              <table class="table" width="250px">
+              <tr>
+              <td width="100" height="100" valign="top" valign="top" bgcolor="#66CCCC">
+              <p><b>Enter a location to locate BTG transit services nearby.</b></p><br>
+              <form> 
+              Address: <input type="text" name="address" size="20" style="border-color:black"><br><br>
+               <div class="checkbox">
+               <label>
+               <input type="checkbox"> Accessible
+               </label>
+               </div>
+              <button class="btn btn-primary btn-xs">Find a service nearby</button>
+              </form></td>
+              </tr></table> 
+              </div>           
+              </div><!-- e-itemBox --> 
+
+      <div class="e-itemBox">
+              <h3>How far is your place from the Airport?</h3>
+              <div align="center">
+              <table class="table" width="250px">
+              <tr>
+              <td width="100" height="100" valign="top" valign="top" bgcolor="#66CCCC">
+              <p><b>Enter a location to locate Boston Logan International airport from your place.</b></p><br>
+              <form>
+              Address: <input type="text" name="address" size="20" style="border-color:black"><br><br>
+               <div class="checkbox">
+               <label>
+               <input type="checkbox"> Accessible
+               </label>
+               </div>
+              <button class="btn btn-primary btn-xs">Submit</button>
+              </form></td>
+              </tr></table>            
+              </div>
+              </div><!-- e-itemBox -->
+          </div><!-- e-item01 --> 
+          
+           <div class="e-item e-item07">
+           <h2>Winter Alerts></h2>     
+          <p>Yes, it might stop the services during winters. Please be in touch with the Boston Transport Group to get all the recent updates in the services of the transport.</p>
+          <a><img src="btg_winters.jpg" alt="Winter Alert" width="253" height="153" /></a> 
+          <a class="btn btn-success" href="http://www.mbta.com/winter/" role="button">Click to know more>></a> 
+       <!--   <input class="btn btn-success btn-xs" type="submit">Add value to your Charlie Card >></button>-->  
+               </div>     
+          </div><!-- b-column1 -->
+          
+        <div class="b-column2">
+        
+         <div class="e-item e-item09">
+          <a href="Charliecard.html"><img src="Charlie-card.png" alt="Charlie card" width="253" height="153" /></a> 
+          <a class="btn btn-success" href="Charliecard.html" role="button">Add value to the Charlie Card</a> 
+       <!--   <input class="btn btn-success btn-xs" type="submit">Add value to your Charlie Card >></button>-->  
+          </div><!-- e-item09 -->
+          
+          <div class="e-item e-item02">
+            <h2>Schedules &amp; Interactive Maps</h2>
+            <ul class="nav nav-pills">
+            <li class="active"><a data-toggle="pill" href="#rail">Rail</a></li>
+            <li><a data-toggle="pill" href="#bus">Bus</a></li>
+            <li><a data-toggle="pill" href="#subway">Subway</a></li>
+            <li><a data-toggle="pill" href="#boat">Boat</a></li>
+            </ul>            
+            <div class="tab-content">
+            <div id="rail" class="tabbedcontentholder_schedules on">
+            <p><strong>Select a line below to view schedules &amp; maps</strong></p>
+            <ul>
+				<li><a href="/schedules_and_maps/rail/lines/?route=FAIRMNT">Fairmount</a></li>
+				<li><a href="/schedules_and_maps/rail/lines/?route=FITCHBRG">Fitchburg</a></li>
+				<li><a href="/schedules_and_maps/rail/lines/?route=WORCSTER">Framingham/Worcester</a></li>
+				<li><a href="/schedules_and_maps/rail/lines/?route=FRANKLIN">Franklin</a></li>
+		    </ul>
+			<ul>
+			    <li><a href="/schedules_and_maps/rail/lines/?route=GREENBSH">Greenbush</a></li>
+			    <li><a href="/schedules_and_maps/rail/lines/?route=HAVRHILL">Haverhill</a></li>
+			    <li><a href="/schedules_and_maps/rail/lines/?route=KINGSTON">Kingston/Plymouth</a></li>
+			    <li><a href="/schedules_and_maps/rail/lines/?route=LOWELL">Lowell</a></li>
+	     	</ul>					
+			<br class="clearit"/>            
+            </div>
+             <div id="bus" class="tabbedcontentholder_schedules on">
+                <p><strong>Select a bus route below to view schedules &amp; maps</strong></p>
+			<select name="selectbus" id="selectbus" onchange="if(this.value!=null){window.location.href=this.value;}">
+			  <option value="">Select a bus route</option>
+		     <option value="/schedules_and_maps/bus/routes/?route=CT1">CT1 -  Central Square, Cambridge  B.U. Medical Center/Bo...</option><option value="/schedules_and_maps/bus/routes/?route=CT2">CT2 -  Sullivan Station  Ruggles Station via Kendall/MIT</option><option value="/schedules_and_maps/bus/routes/?route=CT3">CT3 -  Beth Israel Deaconess Medical Center  Andrew Stat...</option><option value="/schedules_and_maps/bus/routes/?route=SL1">SL1 -  Logan Airport  South Station via Waterfront</option><option value="/schedules_and_maps/bus/routes/?route=SL2">SL2 -  Design Center  South Station via Waterfront</option><option value="/schedules_and_maps/bus/routes/?route=SL4">SL4 -  Dudley Station  South Station at Essex Street via...</option><option value="/schedules_and_maps/bus/routes/?route=SL5">SL5 -  Dudley Station  Downtown Crossing at Temple Place...</option><option value="/schedules_and_maps/bus/routes/?route=1">1 -  Harvard/Holyoke Gate  Dudley Staton via Mass. Ave.</option><option value="/schedules_and_maps/bus/routes/?route=4">4 -  North Station  World Trade Center via Federal Court...</option><option value="/schedules_and_maps/bus/routes/?route=5">5 -  City Point McCormack Housing via Andrew Station</option><option value="/schedules_and_maps/bus/routes/?route=7">7 -  City Point  Otis &amp; Summer Streets via Summer Street...</option><option value="/schedules_and_maps/bus/routes/?route=8">8 -  Harbor Point/UMass  Kenmore Station via B.U. Medica...</option><option value="/schedules_and_maps/bus/routes/?route=9">9 -  City Point  Copley Square via Broadway Station</option><option value="/schedules_and_maps/bus/routes/?route=10">10 -  City Point  Copley Square via Andrew Station &amp; B.U...</option><option value="/schedules_and_maps/bus/routes/?route=11">11 -  City Point  Downtown BayView Route</option><option value="/schedules_and_maps/bus/routes/?route=14">14 -  Roslindale Sq.  Heath Street via Dudley Sta., Grov...</option><option value="/schedules_and_maps/bus/routes/?route=15">15 -  Kane Sq. or Fields Corner Sta.  Ruggles Sta. via U...</option><option value="/schedules_and_maps/bus/routes/?route=16">16 -  Forest Hills Station  Andrew Station or UMass via ...</option><option value="/schedules_and_maps/bus/routes/?route=17">17 -  Fields Corner Station  Andrew Station via Uphams C...</option><option value="/schedules_and_maps/bus/routes/?route=18">18 -  Ashmont Station  Andrew Station via Fields Corner ...</option><option value="/schedules_and_maps/bus/routes/?route=19">19 -  Fields Corner Sta.  Kenmore or Ruggles Sta. via Gr...</option><option value="/schedules_and_maps/bus/routes/?route=21">21 -  Ashmont Sta.  Forest Hills Sta. via Morton St.</option><option value="/schedules_and_maps/bus/routes/?route=22">22 -  Ashmont Sta.  Ruggles Sta. via Talbot Ave. &amp; Jacks...</option><option value="/schedules_and_maps/bus/routes/?route=23">23 -  Ashmont Sta.  Ruggles Sta. via Washington St.</option><option value="/schedules_and_maps/bus/routes/?route=24">24 -  Wakefield Ave. &amp; Truman Highway  Mattapan or Ashmo...</option><option value="/schedules_and_maps/bus/routes/?route=26">26 -  Ashmont Sta.  Norfolk &amp; Morton Belt Line</option><option value="/schedules_and_maps/bus/routes/?route=27">27 -  Mattapan Sta.  Ashmont Sta. via River St.</option><option value="/schedules_and_maps/bus/routes/?route=28">28 -  Mattapan Sta.  Ruggles Sta. via Dudley Sta.</option><option value="/schedules_and_maps/bus/routes/?route=29">29 -  Mattapan Sta.  Jackson Sq., Sta. via Seaver St. &amp; ...</option><option value="/schedules_and_maps/bus/routes/?route=30">30 -  Mattapan Sta.  Forest Hills Sta. via Cummins Highw...</option><option value="/schedules_and_maps/bus/routes/?route=31">31 -  Mattapan Sta.  Forest Hills Sta. via Morton St.</option><option value="/schedules_and_maps/bus/routes/?route=32">32 -  Wolcott Sq. or Cleary Sq.  Forest Hills Sta. via H...</option><option value="/schedules_and_maps/bus/routes/?route=33">33 -  Dedham Line  Mattapan Sta. via River St.</option><option value="/schedules_and_maps/bus/routes/?route=34">34 -  Walpole Center or Dedham Line  Forest Hills Sta. v...</option><option value="/schedules_and_maps/bus/routes/?route=34E">34E -  Walpole Center or Dedham Line  Forest Hills Sta. ...</option><option value="/schedules_and_maps/bus/routes/?route=35">35 -  Dedham Mall/Stimson St.  Forest Hills Station via ...</option><option value="/schedules_and_maps/bus/routes/?route=36">36 -  Charles River Loop or V.A. Hospital  Forest Hills ...</option><option value="/schedules_and_maps/bus/routes/?route=37">37 -  Baker &amp; Vermont Sts.  Forest Hills Sta. via Belgra...</option><option value="/schedules_and_maps/bus/routes/?route=38">38 -  Wren St.  Forest Hills Sta. via Centre &amp; South Str...</option><option value="/schedules_and_maps/bus/routes/?route=39">39 -  Forest Hills Sta.  Back Bay Sta. via Huntington Av...</option><option value="/schedules_and_maps/bus/routes/?route=40">40 -  Georgetowne  Forest Hills Sta. via Washington St. ...</option><option value="/schedules_and_maps/bus/routes/?route=41">41 -  Centre &amp; Eliot Sts.  JFK/UMass Station via Dudley ...</option><option value="/schedules_and_maps/bus/routes/?route=42">42 -  Forest Hills Sta.  Dudley or Ruggles Sta. via Wash...</option><option value="/schedules_and_maps/bus/routes/?route=43">43 -  Ruggles Station  Park &amp; Tremont Sts. via Tremont S...</option><option value="/schedules_and_maps/bus/routes/?route=44">44 -  Jackson Sq. Sta.  Ruggles Sta. via Seaver St. &amp; Hu...</option><option value="/schedules_and_maps/bus/routes/?route=45">45 -  Franklin Park Zoo  Ruggles Sta. via Blue Hill Ave.</option><option value="/schedules_and_maps/bus/routes/?route=47">47 -  Central Sq., Cambridge  Broadway Station via B.U. ...</option><option value="/schedules_and_maps/bus/routes/?route=50">50 -  Cleary Square  Forest Hills Station via Roslindale...</option><option value="/schedules_and_maps/bus/routes/?route=51">51 -  Cleveland Circle  Forest Hills Sta. via Hancock Vi...</option><option value="/schedules_and_maps/bus/routes/?route=52">52 -  Dedham Mall or Charles River Loop  Watertown Yard ...</option><option value="/schedules_and_maps/bus/routes/?route=55">55 -  Jersey &amp; Queensberry  Copley Sq. or Park &amp; Tremont...</option><option value="/schedules_and_maps/bus/routes/?route=57">57 -  Watertown Yard  Kenmore Sta. via Newton Corner &amp; B...</option><option value="/schedules_and_maps/bus/routes/?route=59">59 -  Needham Junction  Watertown Sq. via Newtonville</option><option value="/schedules_and_maps/bus/routes/?route=60">60 -  Chestnut Hill  Kenmore Station via Brookline Villa...</option><option value="/schedules_and_maps/bus/routes/?route=62">62 -  Bedford V.A. Hospital   Alewife Station via Lexing...</option><option value="/schedules_and_maps/bus/routes/?route=64">64 -  Oak Square  University Park, Cambridge or Kendall/...</option><option value="/schedules_and_maps/bus/routes/?route=65">65 -  Brighton Center  Kenmore Sta. via Washington St., ...</option><option value="/schedules_and_maps/bus/routes/?route=66">66 -  Harvard Square  Dudley Station via Allston &amp; Brook...</option><option value="/schedules_and_maps/bus/routes/?route=67">67 -  Turkey Hill  Alewife Station via Arlington Center</option><option value="/schedules_and_maps/bus/routes/?route=68">68 -  Harvard/Holyoke Gate  Kendall/M.I.T. via Broadway</option><option value="/schedules_and_maps/bus/routes/?route=69">69 -  Harvard/Holyoke Gate  Lechmere Sta. via Cambridge ...</option><option value="/schedules_and_maps/bus/routes/?route=70">70 -  Cedarwood, No. Waltham or Watertown Sq.  Universit...</option><option value="/schedules_and_maps/bus/routes/?route=70A">70A -  Cedarwood, No. Waltham or Watertown Sq.  Universi...</option><option value="/schedules_and_maps/bus/routes/?route=71">71 -  Watertown Square  Harvard Station via Mt. Auburn S...</option><option value="/schedules_and_maps/bus/routes/?route=72">72 -  Huron Ave.  Harvard Station via Concord Ave.</option><option value="/schedules_and_maps/bus/routes/?route=73">73 -  Waverley Sq.  Harvard Station via Trapelo Road</option><option value="/schedules_and_maps/bus/routes/?route=74">74 -  Belmont Center  Harvard Station via Concord Ave.</option><option value="/schedules_and_maps/bus/routes/?route=75">75 -  Belmont Center  Harvard Station via Concord Ave.</option><option value="/schedules_and_maps/bus/routes/?route=76">76 -  Hanscom/Lincoln Labs  Alewife Station via Lexingto...</option><option value="/schedules_and_maps/bus/routes/?route=77">77 -  Arlington Heights  Harvard Station via Massachuset...</option><option value="/schedules_and_maps/bus/routes/?route=78">78 -  Arlmont Village  Harvard Station via Park Circle</option><option value="/schedules_and_maps/bus/routes/?route=79">79 -  Arlington Heights  Alewife Station via Massachuset...</option><option value="/schedules_and_maps/bus/routes/?route=80">80 -  Arlington Center  Lechmere Station via Medford Hil...</option><option value="/schedules_and_maps/bus/routes/?route=83">83 -  Rindge Ave.  Central Sq., Cambridge via Porter Squ...</option><option value="/schedules_and_maps/bus/routes/?route=84">84 -  Arlmont Village  Alewife Station</option><option value="/schedules_and_maps/bus/routes/?route=85">85 -  Spring Hill  Kendall/M.I.T. Station via Summer St....</option><option value="/schedules_and_maps/bus/routes/?route=86">86 -  Sullivan Sq. Sta.  Reservoir (Cleveland Circle) vi...</option><option value="/schedules_and_maps/bus/routes/?route=87">87 -  Arlington Center or Clarendon Hill  Lechmere Stati...</option><option value="/schedules_and_maps/bus/routes/?route=88">88 -  Clarendon Hill  Lechmere Station via Highland Aven...</option><option value="/schedules_and_maps/bus/routes/?route=89">89 -  Clarendon Hill or Davis Square  Sullivan Square St...</option><option value="/schedules_and_maps/bus/routes/?route=90">90 -  Davis Square  Wellington Station via Sullivan Squa...</option><option value="/schedules_and_maps/bus/routes/?route=91">91 -  Sullivan Sq. Sta.  Central Sq., Camb. via Washingt...</option><option value="/schedules_and_maps/bus/routes/?route=92">92 -  Assembly Sq. Mall  Downtown via Sullivan Sq. Sta.,...</option><option value="/schedules_and_maps/bus/routes/?route=93">93 -  Sullivan Sq. Sta.  Downtown via Bunker Hill St. &amp; ...</option><option value="/schedules_and_maps/bus/routes/?route=94">94 -  Medford Square  Davis Sq. Station via W. Medford &amp;...</option><option value="/schedules_and_maps/bus/routes/?route=95">95 -  West Medford  Sullivan Sq. Sta. via Mystic Ave.</option><option value="/schedules_and_maps/bus/routes/?route=96">96 -  Medford Sq.  Harvard Station via George St. &amp; Davi...</option><option value="/schedules_and_maps/bus/routes/?route=97">97 -  Malden Center Sta.  Wellington Sta. via Commercial...</option><option value="/schedules_and_maps/bus/routes/?route=99">99 -  Boston Regional Medical Center Wellington Station ...</option><option value="/schedules_and_maps/bus/routes/?route=100">100 -  Elm St.  Wellington Station via Fellsway</option><option value="/schedules_and_maps/bus/routes/?route=101">101 -  Malden Center Station  Sullivan Square Station vi...</option><option value="/schedules_and_maps/bus/routes/?route=104">104 -  Malden Center Station  Sullivan Square Station vi...</option><option value="/schedules_and_maps/bus/routes/?route=105">105 -  Malden Center Station  Sullivan Square Station vi...</option><option value="/schedules_and_maps/bus/routes/?route=106">106 -  Lebanon St., Malden or Franklin Sq.  Wellington S...</option><option value="/schedules_and_maps/bus/routes/?route=108">108 -  Linden Square  Wellington Station via Malden Cent...</option><option value="/schedules_and_maps/bus/routes/?route=109">109 -  Linden Square  Sullivan Square Station via Glenda...</option><option value="/schedules_and_maps/bus/routes/?route=110">110 -  Wonderland or Broadway &amp; Park Ave.  Wellington St...</option><option value="/schedules_and_maps/bus/routes/?route=111">111 -  Woodlawn or Broadway &amp; Park Ave.  Haymarket Stati...</option><option value="/schedules_and_maps/bus/routes/?route=112">112 -  Wellington Sta.  Wood Island Sta. via Central Ave...</option><option value="/schedules_and_maps/bus/routes/?route=114">114 -  Bellingham Square  Maverick Station</option><option value="/schedules_and_maps/bus/routes/?route=116">116 -  Wonderland Station  Maverick Station via Revere S...</option><option value="/schedules_and_maps/bus/routes/?route=117">117 -  Wonderland Station  Maverick Station via Beach St...</option><option value="/schedules_and_maps/bus/routes/?route=119">119 -  Northgate  Beachmont Station via Revere Center &amp; ...</option><option value="/schedules_and_maps/bus/routes/?route=120">120 -  Orient Heights Station  Maverick Station via Benn...</option><option value="/schedules_and_maps/bus/routes/?route=121">121 -  Wood Island Station  Maverick Station via Lexingt...</option><option value="/schedules_and_maps/bus/routes/?route=131">131 -  Melrose Highlands  Malden Center Station via Oak ...</option><option value="/schedules_and_maps/bus/routes/?route=132">132 -  Redstone Shopping Center  Malden Station</option><option value="/schedules_and_maps/bus/routes/?route=134">134 -  North Woburn  Wellington Station via Woburn Sq., ...</option><option value="/schedules_and_maps/bus/routes/?route=136">136 -  Reading Depot  Malden Station via Wakefield, Melr...</option><option value="/schedules_and_maps/bus/routes/?route=137">137 -  Reading Depot  Malden Station via North Ave, Wake...</option><option value="/schedules_and_maps/bus/routes/?route=170">170 -  Central Sq., Waltham â€“ Dudley Square</option><option value="/schedules_and_maps/bus/routes/?route=171">171 -  Dudley Station  Logan Airport via Andrew Station</option><option value="/schedules_and_maps/bus/routes/?route=201">201 -  Fields Corner or No. Quincy Station  Fields Corne...</option><option value="/schedules_and_maps/bus/routes/?route=202">202 -  Fields Corner or No. Quincy Station  Fields Corne...</option><option value="/schedules_and_maps/bus/routes/?route=210">210 -  Quincy Center Sta.  No. Quincy Sta. or Fields Cor...</option><option value="/schedules_and_maps/bus/routes/?route=211">211 -  Quincy Center Sta.  Squantum via Montclair &amp; No. ...</option><option value="/schedules_and_maps/bus/routes/?route=212">212 -  Quincy Center Sta.  North Quincy Sta. via Billing...</option><option value="/schedules_and_maps/bus/routes/?route=214">214 -  Quincy Center Station  Germantown via Sea St. &amp; O...</option><option value="/schedules_and_maps/bus/routes/?route=215">215 -  Quincy Center Sta.  Ashmont Sta. via W. Quincy &amp; ...</option><option value="/schedules_and_maps/bus/routes/?route=216">216 -  Quincy Center Station  Houghs Neck via Sea Street</option><option value="/schedules_and_maps/bus/routes/?route=217">217 -  Quincy Center Station  Ashmont Station           ...</option><option value="/schedules_and_maps/bus/routes/?route=220">220 -  Quincy Center Station  Hingham Center via Fore Ri...</option><option value="/schedules_and_maps/bus/routes/?route=221">221 -  Quincy Center Station  Fort Point via Bicknell Sq...</option><option value="/schedules_and_maps/bus/routes/?route=222">222 -  Quincy Center Station  East Weymouth via Bicknell...</option><option value="/schedules_and_maps/bus/routes/?route=225">225 -  Quincy Center  Weymouth Landing via Quincy Ave. &amp;...</option><option value="/schedules_and_maps/bus/routes/?route=230">230 -  Quincy Center Sta.  Montello Commuter Rail Statio...</option><option value="/schedules_and_maps/bus/routes/?route=236">236 -  Quincy Center Sta.  South Shore Plaza via E. Brai...</option><option value="/schedules_and_maps/bus/routes/?route=238">238 -  Quincy Center Station   Holbrook/Randolph Commute...</option><option value="/schedules_and_maps/bus/routes/?route=240">240 -  Avon Square or Holbrook/Randolph Commuter Rail St...</option><option value="/schedules_and_maps/bus/routes/?route=245">245 -  Quincy Center Sta.  Mattapan Sta. via Quincy Hosp...</option><option value="/schedules_and_maps/bus/routes/?route=325">325 -  Elm St., Medford  Haymarket Station via Fellsway ...</option><option value="/schedules_and_maps/bus/routes/?route=326">326 -  West Medford  Haymarket Station via Playstead Rd....</option><option value="/schedules_and_maps/bus/routes/?route=350">350 -  North Burlington  Alewife Station via Burlington ...</option><option value="/schedules_and_maps/bus/routes/?route=351">351 -  Oak Park/Bedford Woods  Alewife Station via Middl...</option><option value="/schedules_and_maps/bus/routes/?route=352">352 -  Burlington Express  Boston via Rte. 128 &amp; I93</option><option value="/schedules_and_maps/bus/routes/?route=354">354 -  Woburn Express  Boston via Woburn Sq. &amp; I93</option><option value="/schedules_and_maps/bus/routes/?route=411">411 -  Malden Center Station  Revere/Jack Satter House v...</option><option value="/schedules_and_maps/bus/routes/?route=424">424 -  Eastern Ave. &amp; Essex St.  Haymarket Sta. or Wonde...</option><option value="/schedules_and_maps/bus/routes/?route=424W">424W -  Eastern Ave. &amp; Essex St.  Haymarket Sta. or Wond...</option><option value="/schedules_and_maps/bus/routes/?route=426">426 -  Central Sq., Lynn  Haymarket Sta. via Cliftondale</option><option value="/schedules_and_maps/bus/routes/?route=426W">426W -  Central Sq., Lynn  Wonderland Sta. via Cliftonda...</option><option value="/schedules_and_maps/bus/routes/?route=428">428 -  Oaklandvale  Haymarket Sta. via Granada Highlands</option><option value="/schedules_and_maps/bus/routes/?route=429">429 -  Northgate Shopping Center  Central Sq., Lynn via ...</option><option value="/schedules_and_maps/bus/routes/?route=430">430 -  Saugus Center  Malden Center Station via Square O...</option><option value="/schedules_and_maps/bus/routes/?route=431">431 -  Neptune Towers  Central Sq., Lynn via Summer St.</option><option value="/schedules_and_maps/bus/routes/?route=434">434 -  Peabody  Haymarket EXPRESS via Goodwins Circle</option><option value="/schedules_and_maps/bus/routes/?route=435">435 -  Liberty Tree Mall  Central Sq., Lynn via Peabody ...</option><option value="/schedules_and_maps/bus/routes/?route=436">436 -  Liberty Tree Mall  Central Sq., Lynn via Goodwins...</option><option value="/schedules_and_maps/bus/routes/?route=439">439 -  Bass Point, Nahant Central Sq., Lynn</option><option value="/schedules_and_maps/bus/routes/?route=441">441 -  Marblehead  Wonderland via Central Square, Lynn &amp;...</option><option value="/schedules_and_maps/bus/routes/?route=442">442 -  Marblehead  Wonderland via Central Square, Lynn &amp;...</option><option value="/schedules_and_maps/bus/routes/?route=448">448 -  Marblehead  Downtown Crossing via Paradise Rd.or ...</option><option value="/schedules_and_maps/bus/routes/?route=449">449 -  Marblehead  Downtown Crossing via Paradise Rd. or...</option><option value="/schedules_and_maps/bus/routes/?route=450">450 -  Eastern Ave. &amp; Essex St.  Haymarket Sta. or Wonde...</option><option value="/schedules_and_maps/bus/routes/?route=451">451 -  North Beverly  Salem Depot via Cabot St. or Tozer...</option><option value="/schedules_and_maps/bus/routes/?route=455">455 -  Salem Depot   Wonderland via Central Sq., Lynn</option><option value="/schedules_and_maps/bus/routes/?route=456">456 -  Salem Depot  Central Square, Lynn via Highland Av...</option><option value="/schedules_and_maps/bus/routes/?route=459">459 -  Salem Depot  Downtown Crossing via Logan Airport ...</option><option value="/schedules_and_maps/bus/routes/?route=465">465 -  Salem Depot  Liberty Tree Mall via Peabody &amp; Danv...</option><option value="/schedules_and_maps/bus/routes/?route=501">501 -  EXPRESS BUS Brighton Center  Downtown via Oak Sq....</option><option value="/schedules_and_maps/bus/routes/?route=502">502 -  EXPRESS BUS Watertown Yard  Copley Sq. (St. James...</option><option value="/schedules_and_maps/bus/routes/?route=503">503 -  EXPRESS BUS Brighton Center  Copley Sq. via Oak S...</option><option value="/schedules_and_maps/bus/routes/?route=504">504 -  EXPRESS BUS Watertown/Newton Corner  Downtown via...</option><option value="/schedules_and_maps/bus/routes/?route=505">505 -  EXPRESS BUS Central Sq., Waltham  Downtown via Mo...</option><option value="/schedules_and_maps/bus/routes/?route=553">553 -  Roberts  Downtown Boston via Newton Corner &amp; Cent...</option><option value="/schedules_and_maps/bus/routes/?route=554">554 -  Waverley Square  Downtown Boston</option><option value="/schedules_and_maps/bus/routes/?route=556">556 -  Waltham Highlands  Downtown Boston via Newton Cor...</option><option value="/schedules_and_maps/bus/routes/?route=558">558 -  Riverside  Downtown Boston via Newton Corner &amp; Tu...</option>
+			</select>          
+            </div>  
+             
+             <div id="subway" class="tabbedcontentholder_schedules on">
+            <p><strong>Select a line below to view schedules &amp; maps</strong></p>
+            <ul>
+				<li><a href="/schedules_and_maps/subway/lines/?route=BLUE">Blue Line</a></li>
+				<li><a href="/schedules_and_maps/subway/lines/?route=GREEN">Green Line</a></li>
+				<li><a href="/schedules_and_maps/subway/lines/?route=ORANGE">Orange Line</a></li>
+				<li><a href="/schedules_and_maps/subway/lines/?route=RED">Red Line</a></li>
+				<li><a href="/schedules_and_maps/subway/lines/?route=SILVER">Silver Line</a></li>
+			</ul>  
+            </div>    
+             <div id="boat" class="tabbedcontentholder_schedules on">
+             <p><strong>Select a boat route</strong></p>
+			<ul>
+				<li><a href="/schedules_and_maps/boats/lines/?route=F1">Hingham Shipyard - Rowes Wharf</a></li>
+				<li><a href="/schedules_and_maps/boats/lines/?route=F2">Hingham, Hull - Long Wharf, Boston via Logan Airport</a></li>
+				<li><a href="/schedules_and_maps/boats/lines/?route=F4">Long Wharf - Charlestown Navy Yard</a></li>
+			</ul>
+            </div> 
+             </div>       
+          </div> <!-- e-item02 -->  
+                  
+          <div class="e-item e-item05 h-p5 h-hover-child">
+          <iframe width="257" height="250"
+           src="https://www.youtube.com/embed/au2hitamHQw">
+          </iframe>
+          <a class="btn btn-success" href="https://www.youtube.com/watch?v=au2hitamHQw" role="button">Why BTG? Click here to know</a> 
+          </div><!-- e-item05 -->
+         
+     <div class="e-item e-item05">
+   <h2>Parking</h2>
+    <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+         <a data-toggle="collapse" href="#collapse1">Commuter Rail</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse">
+          <ul class="list-group">
+          <li class="list-group-item">Franklin</li>
+          <li class="list-group-item">Lowell</li>
+          <li class="list-group-item">Havervill</li>
+        </ul> 
+        </div>       
+        <div class="btn btn-success" href="<a class="btn btn-success" href="http://www.mbta.com/riding_the_t/parking/?transittype=Commuter+Rail&id=&rn=Franklin&submit-rail=Find+Parking#Rates" role="button"></div>
+         <div class="panel-footer">Submit</div> 
+      </div>  
+      </div>  
+       
+      <div id="Subway" class="panel-collapse collapse in">
+      </div>    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Subway</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <ul class="list-group">
+          <li class="list-group-item">Blue</li>
+          <li class="list-group-item">Green</li>
+          <li class="list-group-item">Red</li>
+        </ul>        
+        <div class="btn btn-success" href="<a class="btn btn-success" href="http://www.mbta.com/riding_the_t/parking/?transittype=Commuter+Rail&id=&rn=Franklin&submit-rail=Find+Parking#Rates" role="button">   
+         <div class="panel-footer">Submit</div> 
+       </div>
+        </div>
+      <div id="Boat/Bus" class="panel-collapse collapse in">
+      </div>    
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Boat/Bus</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <ul class="list-group">
+          <li class="list-group-item">Hingham Ferry</li>
+          <li class="list-group-item">Hull Ferry</li>
+          <li class="list-group-item">CharlesTown Ferry</li>
+        </ul>        
+        <div class="btn btn-success" href="<a class="btn btn-success" href="http://www.mbta.com/riding_the_t/parking/?transittype=Commuter+Rail&id=&rn=Franklin&submit-rail=Find+Parking#Rates" role="button">
+         <div class="panel-footer">Submit</div> 
+      </div>
+        </div>
+  </div> 
+</div>         
+</div>
+         </div><!-- b-column2 -->
+
+         <div class="b-column3">
+          <div class="e-item e-item01">
+            <h2>Service Alerts</h2>
+              <div class="e-itemBox" style="padding:5%">
+              <h3>Subway Alerts</h3>
+              <div id="alerts" style="background-color:#66CCCC">
+              <table class="table">
+              <col/>
+              <col span="2" />
+              <tr>
+              <td style="background-color:blue;color:white">Blue</td>
+              <td style= "color:white"><a href="http://www.mbta.com/rider_tools/transit_updates/?ttype=subway&advistory=true&route=Blue+Line#details">1 upcoming</a></td>
+              </tr>              
+              <tr>
+              <td style="background-color:green;color:white">Green</td>
+              <td style= "color:white">2 upcoming, 1 ongoing</td>
+              </tr>            
+              <tr>
+              <td style="background-color:red;color:white">Mattapan</td>
+              <td style= "color:white">1 upcoming</td>
+              </tr>             
+              <tr>
+              <td style="background-color:orange;color:white">Orange</td>
+              <td style= "color:white">1 upcoming 2 ongoing</td>
+              </tr>            
+              <tr>
+              <td style="background-color:red;color:white">Red</td>
+              <td style= "color:white">1 current 1 upcoming</td>
+              </tr>
+              <tr>
+              <td style="background-color:silver;color:white">Silver</td>
+              <td style= "color:white">2 ongoing</td>
+              </tr>             
+              </table>
+              <br>
+              <button class="btn btn-primary btn-xs">View Subway status>></button>              
+    </div>    
+           </div><!-- e-itemBox -->
+
+         
+      <div class="e-itemBox h-ofv">
+              <h3>Bus alerts</h3>
+             <div id="alerts" style="background-color:#66CCCC">
+               <button type="button" class="btn btn-primary btn-xs" style="background-color:red;">CT1</button>
+               <button type="button" class="btn btn-default btn-xs" style="background-color:green;">1</button>
+               <button type="button" class="btn btn-default btn-xs" style="background-color:cyan;">8</button>
+               <button type="button" class="btn btn-default btn-xs" style="background-color:orange;">9</button>
+               <button type="button" class="btn btn-default btn-xs" style="background-color:blue;">11</button>
+               <button type="button" class="btn btn-default btn-xs" style="background-color:silver;">109</button>
+               <button type="button" class="btn btn-default btn-xs" style="background-color:yellow;">112</button><br><br>
+               <button type="button" class="btn btn-default btn-xs" style="background-color:pink;">116</button>               
+               </p>
+              <br>
+              <button class="btn btn-primary btn-xs">View Bus status>></button>              
+               </div>    
+            </div>
+              
+      <div class="e-itemBox h">
+              <h3>Commuter Rail alerts</h3>
+             <div id="alerts" style="background-color:#66CCCC">
+              <table class="table">
+              <col/>
+              <col span="2" />
+              <tr>
+              <td style="background-color:#004577;color:white">Fairmount</td>
+              <td style= "color:white">1 upcoming</td>
+              </tr>              
+              <tr>
+              <td style="background-color:#004577;color:white">Fitchburg</td>
+              <td style= "color:white">2 upcoming, 1 ongoing</td>
+              </tr>            
+              <tr>
+              <td style="background-color:#004577;color:white">Worchester</td>
+              <td style= "color:white">1 upcoming</td>
+              </tr>             
+              <tr>
+              <td style="background-color:#004577;color:white">Franklin/FrgPrk</td>
+              <td style= "color:white">1 upcoming 2 ongoing</td>
+              </tr>            
+              <tr>
+              <td style="background-color:#004577;color:white">Greenbush</td>
+              <td style= "color:white">1 current 1 upcoming</td>
+              </tr>
+              <tr>
+              <td style="background-color:#004577;color:white">Haverhill</td>
+              <td style= "color:white">2 ongoing</td>
+              </tr> 
+              <tr>
+              <td style="background-color:#004577;color:white">Kingston/Plmth</td>
+              <td style= "color:white">2 ongoing</td>
+              </tr> 
+              <tr>
+              <td style="background-color:#004577;color:white">Lowell</td>
+              <td style= "color:white">2 ongoing</td>
+              </tr> 
+              <tr>
+              <td style="background-color:#004577;color:white">Middle/Lake</td>
+              <td style= "color:white">2 ongoing</td>
+              </tr> 
+              <tr>
+              <td style="background-color:#004577;color:white">Needham</td>
+              <td style= "color:white">2 ongoing</td>
+              </tr>  
+              <tr>
+              <td style="background-color:#004577;color:white">Newbury/Rock</td>
+              <td style= "color:white">2 ongoing</td>
+              </tr> 
+              <tr>
+              <td style="background-color:#004577;color:white">Prov/Stou</td>
+              <td style= "color:white">2 ongoing</td>
+              </tr>                           
+              </table><br>
+              <button class="btn btn-primary btn-xs">View Commuter Rail status>></button>              
+             </div>
+          </div><!-- e-itemBox --> 
+          
+           <div class="e-itemBox h-ofv">
+              <h3>Boat alerts</h3>
+             <div id="alerts" style="background-color:#66CCCC">
+              <table class="table">
+              <col/>
+              <col span="2" />
+              <tr>
+              <td style="background-color:#004577;color:white">Hingham</td>
+              <td style= "color:white">Regular Service</td>
+              </tr>    
+              <tr>
+              <td style="background-color:#004577;color:white">Hill</td>
+              <td style= "color:white">Regular Service</td>
+              </tr> 
+              <tr>
+              <td style="background-color:#004577;color:white">Charlestown</td>
+              <td style= "color:white">Regular Service</td>
+              </tr>             
+              </table><br>
+              <button class="btn btn-primary btn-xs">View Boat status>></button>              
+             </div>
+          </div><!-- e-itemBox -->
+          
+          <div class="e-itemBox h-ofv">
+              <h3>Esc/Elev alerts</h3>
+             <div id="alerts" style="background-color:#66CCCC">
+              <table class="table">
+              <col/>
+              <col span="2" />
+              <tr>
+              <td style="background-color:#004577;color:white">Elevator</td>
+              <td style= "color:white">1 current 3 ongoing</td>
+              </tr>    
+              <tr>
+              <td style="background-color:#004577;color:white">Escalator</td>
+              <td style= "color:white">1 current 2 ongoing</td>
+              </tr> 
+              <tr>
+              <td style="background-color:#004577;color:white">Lift</td>
+              <td style= "color:white">Regular Service</td>
+              </tr>             
+              </table><br>
+              <button class="btn btn-primary btn-xs">View Elev/Esc status>></button>              
+             </div>
+          </div><!-- e-itemBox -->
+          
+           </div><!-- e-item01 --> 
+          </div><!-- b-column3 -->
+      </div><!--body-->
+    </div><!-- content -->
+    <!-- footer ///////////////////////////////////////////////////////////////////////////-->
+      <div id="footer">	
+      <div id="e-metro-footer"></div>
+      <ul id="b-utilitylinks">
+        <li><a href="safety.html">Privacy Policy</a></li>
+        <li><a href="aboutthis.html">About this site</a></li>
+        <li><a href="tipsforridingT.html">Site Map</a></li>
+      </ul>
+     <div id="btn-fb"><div class="fb-like" data-href="http://www.btg.com" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div></div>
+      <p id="btn-tw"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.btg.com" data-text="Covering all the areas of Boston. Providing visit to the beautiful city Boston by Boston Transport group. | Boston Metro" data-count="none">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
+      <p class="e-license">Licensed by BOSTON TRANSPORT GROUP</p>
+      <p class="e-copyright">Copyright &copy; Boston Transport Authority., Ltd. All rights reserved.</p>  
+    </div><!-- footer -->
+
+  </div><!-- container -->
+  </div>
+</body>
+</html>
